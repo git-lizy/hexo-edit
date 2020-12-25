@@ -1,0 +1,50 @@
+{
+  "name": "hexo-online-server",
+  "version": "1.1.11",
+  "description": "hexo在线编辑，发布文章",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/HCLonely/hexo-online.git"
+  },
+  "author": "HCLonely",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HCLonely/hexo-online/issues"
+  },
+  "homepage": "https://github.com/HCLonely/hexo-online#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "child_process": "^1.0.2",
+    "cookie-parser": "~1.4.4",
+    "ejs": "~2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fs": "0.0.1-security",
+    "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
+    "http": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "https": "^1.0.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "multiparty": "^4.2.2",
+    "mysql2": "^2.2.5",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "server": "^1.0.31",
+    "url": "^0.11.0",
+    "ws": "^7.4.1"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "devDependencies": {}
+}

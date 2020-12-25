@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/base.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/js/particles.js"></script>
+</head>
+
+<body>
+    <div id="large-header" class="large-header login-page logobg_style" style="height: 100%;">
+        <div class="login-form">
+            <div class="login-content">
+                <h1 class="title_name">个人博客</h1>
+                <form method="POST" action="/login" role="form" id="form_login" class="login_padding">
+                    <div class="form-group clearfix">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="icon_user"></i>
+                            </div>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="用户名" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="icon_password"></i>
+                            </div>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="密码" autocomplete="off">
+                        </div>
+                    </div>
+                        <!-- <div class=" textright"><a href="#" class="forget">忘记密码？</a></div> -->
+                        <div class="tishi"></div>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-danger btn-block btn-login">
+                            <i class="fa fa-sign-in"></i>
+                            登录
+                        </button>
+                    </div>
+                    <!-- <div class=" textright"><a href="/register" class="forget">立即注册</a></div> -->
+                </form>
+            </div>
+        </div>
+        <div id="particles" style="display: flex;align-items: center;justify-content: center"></div>
+    </div>
+    <script>
+        particlesJS('particles',
+            {
+                "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                    "enable": true,
+                    "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                    },
+                    "polygon": {
+                    "nb_sides": 5
+                    },
+                    "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                    }
+                }
+                },
+                "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                    },
+                    "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                    },
+                    "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                    },
+                    "repulse": {
+                    "distance": 200
+                    },
+                    "push": {
+                    "particles_nb": 4
+                    },
+                    "remove": {
+                    "particles_nb": 2
+                    }
+                }
+                },
+                "retina_detect": true,
+                "config_demo": {
+                "hide_card": false,
+                "background_color": "#b61924",
+                "background_image": "",
+                "background_position": "50% 50%",
+                "background_repeat": "no-repeat",
+                "background_size": "cover"
+                }
+            });
+    </script>
+    <script src="/js/valiInfo.js"></script>
+    <script>
+        <%- script %>
+    </script>
+</body>
+
+</html>

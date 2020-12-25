@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>注册</title>
+    <link rel="stylesheet" href="/css/base.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/js/particles.js"></script>
+</head>
+
+<body>
+    <div id="large-header" class="large-header logobg_style" style="height: 706px;">
+        <div class="Retrieve_style">
+            <div class="Retrieve-content step-body" id="myStep">
+                <h1 class="title_name">用户注册</h1>
+                <div class="step-header" style="display: block;">
+                    <div class="step-bar">
+                    <div class="step-bar-active" style="width: 16.6667%;"></div></div>
+                        <ul><li class="step-active" style="width: 33.3333%;"><p>用户注册</p>
+                            </li>
+                            <li style="width: 33.3333%;"><p>成功</p>
+                            </li>
+                        </ul>
+                        </div>
+                    <div class="step-content" style="margin-top: 0;">
+                        <div class="step-list login_padding" style="display: block;">
+                        <form role="form" method="POST" id="form_register" class="/registe/info">
+                            <div class="form-group clearfix">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="icon_user"></i></div>
+                                    <input type="text" class="form-control text_phone" name="user" id="user" placeholder="用户名" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="icon_password"></i>
+                                    </div>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="密码" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="icon_password"></i>
+                                    </div>
+                                    <input type="password" class="form-control" name="confirmpwd" id="confirmpwd" placeholder="确认密码" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="tishis"></div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger btn-block btn-login" id="submitBtn">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="step-list">
+                        <div class="ok_style center">
+                                <h2><img src="images/ok.png"></h2>
+                                <h5 class="color2 mtb20">你已成功注册博客<b id="sec">5</b>秒后跳转到登录界面</h5>
+                                <a href="JavaScript：ovid()" class="btn btn-danger">登录</a>
+                                <a href="JavaScript：ovid()" class="btn btn-primary">从新注册</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles" style="display: flex;align-items: center;justify-content: center"></div>		
+    </div>
+    <script src="/js/valiInfo.js"></script>
+    <script src="/js/jquery.step.js"></script>
+    <script>
+        particlesJS('particles',
+            {
+                "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                    "enable": true,
+                    "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                    },
+                    "polygon": {
+                    "nb_sides": 5
+                    },
+                    "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                    }
+                }
+                },
+                "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                    },
+                    "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                    },
+                    "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                    },
+                    "repulse": {
+                    "distance": 200
+                    },
+                    "push": {
+                    "particles_nb": 4
+                    },
+                    "remove": {
+                    "particles_nb": 2
+                    }
+                }
+                },
+                "retina_detect": true,
+                "config_demo": {
+                "hide_card": false,
+                "background_color": "#b61924",
+                "background_image": "",
+                "background_position": "50% 50%",
+                "background_repeat": "no-repeat",
+                "background_size": "cover"
+                }
+            });
+    </script>
+</body>
+</html>
