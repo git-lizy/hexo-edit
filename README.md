@@ -26,12 +26,15 @@
 
 ## 使用
 
-### 安装
+### 初始化
 
 ```shell
-npm install hexo-online-server -S
+npm init
+npm install
 ```
-
+### 新建blog文件夹
+下载hexo博客地址https://github.com/git-lizy/blog.git
+并将blog改为你的登录名即可
 ### 配置
 
 1. 新建`config.json`文件, 内容如下:
