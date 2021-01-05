@@ -8,6 +8,18 @@ function nextTick(callback) {
     }).catch( e => { throw e });
 }
 
+function btnClickEffect() {
+    var nowTime = new Date().getTime();
+    var clickTime = $(this).attr("ctime");
+    if(clickTime && (nowTime - clickTime < 2500)){
+        swal('操作过于频繁，稍后再试！', "error");
+        return false;
+    } else {
+        $(this).attr("ctime", nowTime);
+        return true;
+    }
+}
+
 function isFunction(fun) {
     return Object.prototype.toString.call(fun) === '[object Function]';
 }

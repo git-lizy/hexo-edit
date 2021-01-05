@@ -71,43 +71,32 @@
         }
         return false;
     });
-    $(".btn-save").click(function () {
-        savePost(true);
-    });
-    $(".btn-publish").click(function () {
-        $('.editormd-container-mask').show();
-        $.get("shell?action=clean", function (data, status, xhr) {
-            if (status === "success") {  
-                $.get("shell?action=generate", function (data, status, xhr) {
-                    if (status === "success") {
-                        setTimeout(() => {
-                            $('.editormd-container-mask').hide();
-                            swal('发布成功', 'success'); 
-                        }, 2000);
-                    }
-                });
-            } else {
-                $('.editormd-container-mask').hide();
-            }
+
+    $(".btn-save").click(function (e) {
+        nextTick( () => {
+            savePost(true);
         })
     });
 
-    // $("#search").bind('input', throttle(function(e) {
-    //     let val = $(this).val();
-    //     let aList = document.querySelectorAll('.list-group-item');
-    //     if (!val) {
-    //         aList.forEach( aEl => {
-    //             aEl.style.display = 'block';
-    //         })
-    //     } else {
-    //         aList.forEach( aEl => {
-    //             let text = aEl.innerText;
-    //             if (!text || !text.indexOf(val) === -1) {
-    //                 aEl.style.display = 'none';
-    //             }
-    //         })
-    //     }
-    // }, 1500));
+    $(".btn-publish").click(function () {
+        if (btnClickEffect()) {
+            $('.editormd-container-mask').show();
+            $.get("shell?action=clean", function (data, status, xhr) {
+                if (status === "success") {  
+                    $.get("shell?action=generate", function (data, status, xhr) {
+                        if (status === "success") {
+                            setTimeout(() => {
+                                $('.editormd-container-mask').hide();
+                                swal('发布成功', 'success'); 
+                            }, 2000);
+                        }
+                    });
+                } else {
+                    $('.editormd-container-mask').hide();
+                }
+            })
+        }
+    });
 
     function getPost(e) {
         let postId = $(this).attr("data-href");

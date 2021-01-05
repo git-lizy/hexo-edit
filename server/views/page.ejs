@@ -70,7 +70,9 @@
         return false;
     });
     $(".btn-save").click(function () {
-        savePage(true);
+        nextTick(() => {
+            savePage(true);
+        })
     });
 
     function getPage(e) {
@@ -105,19 +107,23 @@
     }
 
     $(".btn-publish").click(function () {
-        $.get("shell?action=clean", function (data, status, xhr) {
-            if (status === "success") {  
-                $.get("shell?action=generate", function (data, status, xhr) {
-                    if (status === "success") {
-                        $('.editormd-container-mask').show();
-                        setTimeout(()=> { 
-                            $('.editormd-container-mask').hide();
-                            swal('发布成功', 'success'); 
-                        }, 2000);
-                    }
-                });
-            }
-        })
+        if (btnClickEffect()) {
+            $('.editormd-container-mask').show();
+            $.get("shell?action=clean", function (data, status, xhr) {
+                if (status === "success") {
+                    $.get("shell?action=generate", function (data, status, xhr) {
+                        if (status === "success") {
+                            setTimeout(()=> { 
+                                $('.editormd-container-mask').hide();
+                                swal('发布成功', 'success'); 
+                            }, 2000);
+                        }
+                    });
+                } else {
+                    $('.editormd-container-mask').hide();
+                }
+            })
+        }
     });
     
     function deleteNode(id) {

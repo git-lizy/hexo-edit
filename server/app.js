@@ -38,6 +38,7 @@ var getPostRouter = require('./routes/getPost');
 var pageRouter = require('./routes/page');
 var getPageRouter = require('./routes/getPage');
 var getImgRouter = require('./routes/readImg');
+var downLoadFileRouter = require('./routes/downLoadFile');
 
 let indexPath = olConfig.indexPath;
 app.use(indexPath, indexRouter);
@@ -51,6 +52,7 @@ app.use(indexPath + 'getPost', getPostRouter);
 app.use(indexPath + 'page', pageRouter);
 app.use(indexPath + 'getPage', getPageRouter);
 app.use(indexPath + 'readImg', getImgRouter);
+app.use(indexPath + 'download_file', downLoadFileRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

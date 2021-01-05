@@ -5,7 +5,7 @@
         "secret": "Engtron",
         "autoSave": 300000,
         "noticeUrl": "",
-        "root": "blog/",
+        "root": "blog",
         "source": "source",
         "pull": ["git pull"],
         "push": ["git add --all .","git commit -m 'update'","git push"],
