@@ -55,7 +55,7 @@ app.use(indexPath + 'readImg', getImgRouter);
 app.use(indexPath + 'download_file', downLoadFileRouter);
 
 app.use(function (req, res, next) {
-  next(createError(404));
+  res.redirect(indexPath)
 });
 
 // app.get('', function (req, res) {

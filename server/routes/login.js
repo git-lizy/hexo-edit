@@ -3,6 +3,7 @@ var router = express.Router()
 var models = require('../../models')
 var multer = require('multer')
 var path = require('path')
+var CryptoJS = require('crypto-js');
 global.upload = multer({ dest: '/img' }) //用于指定上传文件 dest指定路径
 
 /* GET home page. */
@@ -16,7 +17,8 @@ router.post('/', async function (req, res, next) {
             }
         });
         if (users.length) {
-            findUser({req, res, users, name, pwd})
+            pwd = aesDecrypt(pwd, 'engtron');
+            findUser({req, res, users, name, pwd});
         } else resetLogion(res, '用户不存在！请联系管理员！');
     } else {
         res.render('login', { script: '' });
@@ -29,7 +31,12 @@ function findUser(params) {
     });
     if (result) {
         excuteLogion(params.req, params.res, result);
-    } resetLogion(res, '密码错误！请重新输入！');
+    } else resetLogion(params.res, '密码错误！请重新输入！');
+}
+
+function aesDecrypt(encrypted, key) {
+    let decrypted = CryptoJS.AES.decrypt(encrypted, key);
+    return decrypted.toString(CryptoJS.enc.Utf8);
 }
 
 function excuteLogion(req, res, result) {

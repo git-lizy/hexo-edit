@@ -1,25 +1,28 @@
 //登录操作
 //var phone =/[1][3-9][0-9]{9,9}/;
-var validCode=true;
 let form_login = document.forms["form_login"];
 if (form_login) {
 	form_login.onsubmit = function() {
-		var txtUser = $.trim($("#username").val());
-		var txtPwd = $("#password").val();
-		
-		if (!$.trim(txtUser)) {
+		let user = form_login.username.value;
+		let pwd = form_login.password.value;
+		if (!$.trim(user)) {
 			Tip('请输入用户名！');
-			$("#txtUser").focus();
+			$("#username").focus();
 			return false;
 		}
-	
-		if (!$.trim(txtPwd)) {
+		if (!$.trim(pwd)) {
 			Tip('请输入密码！');
-			$("#Userpwd").focus();
+			$("#password").focus();
 			return false;
-		}
+		}	
+		form_login.password.value = aesEncrypt(pwd, 'engtron');
 		return true;
 	}
+}
+
+function aesEncrypt(pwd, key) {
+	let encrypted = CryptoJS.AES.encrypt(pwd, key);
+	return encrypted.toString();
 }
 
 //注册操作
@@ -61,7 +64,6 @@ function Tip(msg) {
 }
 
 function Tips(msg) {
-	debugger
 	$(".tishis").show().html("<div class='prompt'><i class='tishi_icon'></i>"+msg+"</div>");
 }
 
