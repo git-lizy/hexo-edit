@@ -1,10 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var models = require('../../models')
-var multer = require('multer')
-var path = require('path')
 var CryptoJS = require('crypto-js');
-global.upload = multer({ dest: '/img' }) //用于指定上传文件 dest指定路径
 
 /* GET home page. */
 router.post('/', async function (req, res, next) {
@@ -27,16 +24,22 @@ router.post('/', async function (req, res, next) {
 
 function findUser(params) {
     let result = params.users.find( user => {
-        return user.username === params.name && user.password === params.pwd;
+        return user.username === params.name && user.password === md5Decrypt(params.pwd);
     });
     if (result) {
         excuteLogion(params.req, params.res, result);
     } else resetLogion(params.res, '密码错误！请重新输入！');
 }
 
+// AES解密
 function aesDecrypt(encrypted, key) {
     let decrypted = CryptoJS.AES.decrypt(encrypted, key);
     return decrypted.toString(CryptoJS.enc.Utf8);
+}
+
+// MD5加密
+function md5Decrypt(pwd) {
+    return CryptoJS.MD5(pwd).toString();
 }
 
 function excuteLogion(req, res, result) {
@@ -49,7 +52,6 @@ function excuteLogion(req, res, result) {
 function setPublicPath(result) {
     global.olConfig.source_dir = `${olConfig.root}/${result.username}/${olConfig.source}`;
     global.olConfig.base_dir = `${olConfig.root}/${result.username}`;
-    global.upload = multer({ dest: path.join(global.olConfig.source_dir, '/img') });
 }
 
 function resetLogion(res, msg) {

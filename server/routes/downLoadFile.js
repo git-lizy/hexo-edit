@@ -2,7 +2,9 @@ let express = require('express')
 let router = express.Router()
 let base_fs = require('fs')
 let path = require('path')
-var { isLogin } = require('../../lib/util')
+let multer = require('multer')
+let upload = multer({ dest: 'img' }) //用于指定上传文件 dest指定路径
+let { isLogin } = require('../../lib/util')
 
 router.post('/', upload.single('editormd-image-file'), function(req, res) {
     if (isLogin(req) && !req.session.isLoadingGenerate) {

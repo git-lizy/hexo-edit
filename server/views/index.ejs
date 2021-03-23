@@ -57,20 +57,20 @@
   <script src="/js/alertifyjs/alertify.js"></script>
   <script src="/js/redirect.js"></script>
   <script>
-    let ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
-    ws.onopen = function (ev) {
-      swal("WebSocket已连接");
-      switchActive(location.pathname);
-    };
+    // let ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
+    // ws.onopen = function (ev) {
+    //   swal("WebSocket已连接");
+    //   switchActive(location.pathname);
+    // };
     
-    ws.onclose = function (ev) {
-      ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
-      swal("重新连接...", "error");
-    };
-    ws.onerror = function (ev) {
-      swal("重新连接...", "error");
-      ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
-    };
+    // ws.onclose = function (ev) {
+    //   ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
+    //   swal("重新连接...", "error");
+    // };
+    // ws.onerror = function (ev) {
+    //   swal("重新连接...", "error");
+    //   ws = new WebSocket('<%- ssl?"wss":"ws" %>://' + window.location.hostname + ':<%= wsPort %>');
+    // };
     function swal(e, type = 'message') {
       if ($(".output").length > 0) {
         $(".output")[0].value += e;

@@ -37,7 +37,7 @@ function createHttpServer() {
     server.on('error', onError);
     server.on('listening', onListening);
 
-    var wss = new WebSocket.Server(wssOption);
+    var wss = var wssOption = { port: olConfig.wsPort };(wssOption);
     wss.on('connection', function connection(ws) {
         function send(data, type = "message") {
             ws.send(JSON.stringify({ type, data }));
